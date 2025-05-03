@@ -10,7 +10,7 @@ This dataset contains synthetically generated conversational dialogues in Hingli
 
 - **Language:** Hinglish (Hindi + English)
 - **Domain:** College life, daily interactions, cultural events, and general discussions
-- **Size:** 3576 conversation
+- **Size:** 3577 conversation
 - **Turns per Conversation:** 3–5 conversational exchanges per context
 - **Generation Method:** Synthetically generated using Google's Gemini-2.5-Pro
 - **Intended Usage:** Fine-tuning NLP models for tasks such as:
@@ -24,24 +24,34 @@ This dataset contains synthetically generated conversational dialogues in Hingli
 ## Example Conversation Snippet
 
 ```json
-[
-  {
-    "role": "user",
-    "content": "Navratri night ke liye rangoli ka kya scene hai? Aur lighting ka bhi kuch plan hai tere dimag mein?"
-  },
-  {
-    "role": "assistant",
-    "content": "Haan bhai, rangoli traditional-modern mix hogi, lighting mein steady LED strips hain. Festive feel pakka hai!"
-  },
-  {
-    "role": "user",
-    "content": "Perfect! Aur selfie light bhi rakh lena, sabko photo leni hai."
-  },
-  {
-    "role": "assistant",
-    "content": "Bilkul, selfie ka jugaad ready hai. Tension-free raho, sab mast hoga!"
-  }
-]
+{
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Oye, Navratri night ke liye rangoli ka kya scene hai? Mummyji toh keh rahi thi ki badi honi chahiye is baar. Aur lighting ka bhi kuch plan hai tere dimag mein, photographer sahab?"
+      },
+      {
+        "role": "assistant",
+        "content": "Haan bhai, rangoli ka design toh final hai. Thoda traditional aur thoda modern touch diya hai. Lighting mein LED strips use karenge, colorful wali. Energy bhi bachegi aur photo bhi mast aayegi, tension na le."
+      },
+      {
+        "role": "user",
+        "content": "LED theek hai, lekin woh blink-blink wali nahi chahiye. Aankhein dukhti hain phir. Aur rangoli mein colors bright rakhna, festive feel aani chahiye. Mummyji ne bola hai ki design mein diya bhi banana hai."
+      },
+      {
+        "role": "assistant",
+        "content": "Haan, blink wali toh bilkul nahi. Steady lights hi lagayenge. Rangoli mein vibrant colors hi use kar raha hoon, aur diya wala design bhi add kar diya hai. Don't worry, mummyji ko pasand aayega pakka."
+      },
+      {
+        "role": "user",
+        "content": "Perfect! Phir toh done deal hai. Bas time pe start kar dena kaam, last minute rush nahi chahiye. Aur haan, ek selfie light bhi rakhna, sabko photos bhi toh khichwani hongi. Navratri ki shuruwat hai, dhoom machani hai!"
+      },
+      {
+        "role": "assistant",
+        "content": "Bilkul bhai, time pe shuru kar denge. Selfie light ka bhi jugad kar liya hai. Tension na le, is baar Navratri aisa hoga ki sab yaad rakhenge. Rangoli bhi superhit, lighting bhi dhamakedar. Ready ho jao!"
+      }
+    ]
+}
 ```
 
 ---
@@ -70,13 +80,11 @@ Examples using Python:
 import json
 
 # Load dataset
-with open('.Data/hinglish_3_5k_conversations_dataset.json', 'r', encoding='utf-8') as file:
-    conversations = [json.loads(line) for line in file]
+with open('.data/train.json', 'r', encoding='utf-8') as file:
+    conversations = json.loads(file)
 
 # Process conversations
-for convo in conversations:
-    for message in convo:
-        print(message['role'], ':', message['content'])
+dataset = [item for item in conversations]
 ```
 
 ```python
