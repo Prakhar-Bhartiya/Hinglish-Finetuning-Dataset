@@ -1,17 +1,3 @@
----
-license: apache-2.0
-task_categories:
-  - text2text-generation
-  - text-generation
-language:
-  - en
-  - hi
-tags:
-  - Hinglish
-  - Finetuning
-pretty_name: Hinglish conversation with context dataset
----
-
 # Hinglish Conversations Dataset
 
 ## Overview
